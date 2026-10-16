@@ -8,7 +8,7 @@ import {
   RotateCw,
 } from "lucide-react";
 import { Btn, Eyebrow, Pill, Section } from "./ui";
-import { AudienceItem, TagItem } from "./data";
+import { AudienceItem, TagItem } from "@/lib/data";
 
 type Props = {
   id: string;
