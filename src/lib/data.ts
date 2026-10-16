@@ -1,0 +1,77 @@
+export const colleges = {
+  id: "colleges",
+  eyebrow: "02 • For Colleges",
+  a: "Get Discovered by",
+  b: "Students and Recruiters.",
+  desc: "Put your college in front of students searching for the right course and recruiters looking for the right talent. CampusPe helps you build your presence, attract enquiries and connect with opportunities.",
+  cta: "List Your College",
+  items: [
+    {
+      n: "01",
+      k: "Verified profile",
+      t: "Build your college profile",
+      d: "Showcase your college, courses, fees, campus, placements and achievements in one structured profile that students and recruiters can discover.",
+      tags: ["NAAC A++ Ready", "98% Match"],
+    },
+    {
+      n: "02",
+      k: "Direct enroll",
+      t: "Students discover and connect",
+      d: "Students searching for colleges can discover your profile, explore your courses and fees, and connect directly with your admission team.",
+      tags: ["Direct Enquiries", "WhatsApp / Chat"],
+    },
+    {
+      n: "03",
+      k: "Campus recruiting",
+      t: "Recruiters discover your College",
+      d: "Companies hiring fresh talent can discover your college, explore your talent and connect with your placement team.",
+      tags: ["500+ Hiring Partners", "Connect Directly"],
+    },
+    {
+      n: "04",
+      k: "Live hub",
+      t: "Track placements in real time",
+      d: "Track students, interviews, offers and placements from one dashboard.",
+      tags: ["Live Placements", "Students · Interviews · Offers"],
+    },
+  ],
+};
+export const employers = {
+  id: "employers",
+  eyebrow: "03 • For Employers",
+  a: "Stop running campus drives.",
+  b: "Start hiring the right people.",
+  desc: "Post a role in minutes and reach relevant candidates without the time, travel and coordination of traditional hiring. CampusPe helps you discover, match and connect with talent from colleges and beyond.",
+  cta: "Post a Job",
+  flip: true,
+  items: [
+    {
+      n: "01",
+      t: "Post a role in minutes",
+      d: "Define your skills, location and hiring requirements. Reach relevant candidates across the CampusPe network.",
+      badge: "Instant setup",
+      tags: ["5 Min Deployment", "500+ Campus Network"],
+    },
+    {
+      n: "02",
+      t: "Receive a matched shortlist",
+      d: "Get candidates matched to your role by skills, experience, location and hiring requirements.",
+      badge: "Instant setup",
+      tags: ["Zero CV Clutter", "Tier 1–Tier 3 Parity"],
+    },
+    {
+      n: "03",
+      t: "Connect with candidates directly",
+      d: "Message, schedule interviews, and move candidates through your pipeline — all in one place.",
+      badge: "Instant setup",
+      tags: ["In-App Scheduling", "1-Click Video / Chat"],
+    },
+    {
+      n: "04",
+      t: "Reduce your time-to-hire",
+      d: "Find matched candidates, connect with them and move from shortlist to offer in one streamlined workflow.",
+      badge: "Instant setup",
+      tags: ["<2 Days", "57% Faster Hiring"],
+    },
+  ],
+};
