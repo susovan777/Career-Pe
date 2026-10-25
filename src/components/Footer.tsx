@@ -48,7 +48,7 @@ export function ReadyCta() {
           <Btn outline className="border-slate-300! text-ink!">
             List Your College →
           </Btn>
-          <Btn outline className="!border-slate-300 !text-ink">
+          <Btn outline className="border-slate-300! text-ink!">
             Post a Job →
           </Btn>
         </div>
@@ -93,7 +93,7 @@ const socials = [
 ];
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-transparent to-sky-100/70">
+    <footer className="bg-linear-to-b from-transparent to-sky-100/70">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
         <div>
           <p className="text-3xl font-extrabold text-brand">CampusPe</p>

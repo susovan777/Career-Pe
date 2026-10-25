@@ -1,15 +1,7 @@
-import { Fragment, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import Image from "next/image";
-import {
-  ArrowRight,
-  ArrowUp,
-  Check,
-  CheckCircle2,
-  Lock,
-  Upload,
-  Zap,
-} from "lucide-react";
-import { Btn, Eyebrow, H2, Pill, Section } from "./ui";
+import { ArrowRight, ArrowUp, Check, Lock, Zap } from "lucide-react";
+import { Btn, Eyebrow, Pill, Section } from "./ui";
 
 const partners = [
   { src: "/partners/radiant.png", alt: "Radiant Info" },
@@ -109,11 +101,11 @@ export function Discovery() {
   return (
     <Section className="relative isolate grid items-center gap-12 lg:grid-cols-2">
       <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 -z-10 h-full w-[125%] -translate-x-1/2"
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[120%] w-screen -translate-x-1/2 -translate-y-1/2"
         style={{
           background:
-            "radial-gradient(35% 45% at 0% 45%, rgba(186,230,253,.45), transparent 70%), radial-gradient(38% 42% at 100% 0%, rgba(221,214,254,.60), transparent 70%)",
+            "radial-gradient(30% 50% at 8% 45%, rgba(186,230,253,0.50), transparent 75%), radial-gradient(30% 50% at 92% 45%, rgba(221,214,254,0.55), transparent 75%)",
         }}
       />
       <div>
@@ -341,7 +333,7 @@ export function ResumeUpload() {
       {/* ── Background Glow Effect (Sky Blue Left, Lavender Purple Right) ── */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[115%] w-[130%] -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[115%] w-screen -translate-x-1/2 -translate-y-1/2"
         style={{
           background:
             "radial-gradient(40% 45% at 15% 50%, rgba(186,230,253,0.40), transparent 70%), radial-gradient(42% 50% at 85% 55%, rgba(221,214,254,0.45), transparent 70%)",

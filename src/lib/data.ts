@@ -114,7 +114,7 @@ export const colleges: AudienceSectionData = {
         {
           label: "Students · Interviews · Offers",
           className:
-            "bg-[#0080FF] text-white border-transparent font-medium shadow-sm",
+            "!bg-[#0080FF] text-white border-transparent font-medium shadow-sm",
         },
       ],
     },
@@ -192,7 +192,7 @@ export const employers: AudienceSectionData = {
         {
           label: "<2 DAYS",
           className:
-            "bg-[#0080FF] text-white border-transparent font-bold tracking-wider text-[11px]",
+            "!bg-[#0080FF] text-white border-transparent font-bold tracking-wider text-[11px]",
         },
         {
           label: "57% Faster Hiring",

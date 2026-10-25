@@ -18,7 +18,6 @@ type Props = {
   desc: string;
   cta: string;
   items: AudienceItem[];
-  flip?: boolean;
 };
 
 function renderTagIcon(icon?: TagItem["icon"]) {
@@ -58,38 +57,60 @@ export default function Audience({
   return (
     <Section
       id={id}
-      className="grid gap-12 lg:grid-cols-[1fr_1.4fr] items-start"
+      className="relative isolate grid gap-12 lg:grid-cols-[1fr_1.4fr] items-start"
     >
+      {/* ── Soft Ambient Glow Background ── */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[120%] w-screen -translate-x-1/2 -translate-y-1/2"
+        style={{
+          background:
+            "radial-gradient(30% 50% at 8% 45%, rgba(186,230,253,0.50), transparent 75%), radial-gradient(30% 50% at 92% 45%, rgba(221,214,254,0.50), transparent 75%)",
+        }}
+      />
+
+      {/* ── Left Column: Headline and Description ── */}
       <div>
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <h2 className="mt-6 text-5xl font-bold leading-tight text-slate-700">
+        <Eyebrow className="inline-flex items-center gap-2">
+          <span className="size-2 rounded-full bg-brand" />
+          <span>{eyebrow}</span>
+        </Eyebrow>
+
+        <h2 className="mt-6 text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-slate-800">
           {a} <span className="text-brand">{b}</span>
         </h2>
-        <p className="mt-6 text-lg text-slate-500">{desc}</p>
-        <Btn className="mt-8">
+
+        <p className="mt-6 text-base sm:text-lg leading-relaxed text-slate-500 max-w-lg">
+          {desc}
+        </p>
+
+        <Btn className="mt-8 shadow-lg shadow-brand/20 transition-transform duration-200 hover:scale-102">
           {cta}
           <ArrowRight size={16} />
         </Btn>
       </div>
 
+      {/* ── Right Column: Cards List ── */}
       <div className="space-y-4">
         {items.map((i) => (
           <div
             key={i.n}
-            className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-6 sm:flex-row sm:items-center sm:justify-between shadow-xs hover:border-slate-200 transition-colors"
+            className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white/95 p-6 shadow-[0_8px_30px_rgba(15,23,42,0.04)] backdrop-blur-xs transition-all duration-300 hover:border-slate-200 hover:shadow-[0_12px_36px_rgba(15,23,42,0.07)] sm:flex-row sm:items-start sm:justify-between"
           >
-            {/* Left Column: Number, Title, Description */}
+            {/* Number, Category, Title, Description */}
             <div className="flex gap-4">
-              <span className="grid size-8 shrink-0 place-items-center rounded-md bg-indigo-50 text-xs font-semibold text-indigo-600">
+              <span className="grid size-8 shrink-0 place-items-center rounded-lg border border-indigo-100 bg-indigo-50/70 text-xs font-semibold text-indigo-600">
                 {i.n}
               </span>
+
               <div>
                 {i.k && (
-                  <p className="text-xs uppercase tracking-wider text-slate-400 font-medium">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     {i.k}
                   </p>
                 )}
-                <p className="text-xl font-bold text-slate-800">
+
+                <p className="text-lg font-bold text-slate-800">
                   {i.t}{" "}
                   {i.badge && (
                     <Pill className="ml-2 border-transparent bg-indigo-50 text-[10px] uppercase font-semibold text-indigo-600">
@@ -97,24 +118,29 @@ export default function Audience({
                     </Pill>
                   )}
                 </p>
-                <p className="mt-2 max-w-md text-sm text-slate-500 leading-relaxed">
+
+                <p className="mt-1.5 max-w-md text-xs sm:text-sm leading-relaxed text-slate-500">
                   {i.d}
                 </p>
               </div>
             </div>
 
-            {/* Right Column: Tags & Badges */}
-            <div className="flex flex-wrap items-start gap-2 sm:max-w-56 sm:flex-col sm:items-end sm:justify-center shrink-0">
+            {/* Tags and Subtext */}
+            <div className="flex flex-wrap items-start gap-2 shrink-0 sm:max-w-52 sm:flex-col sm:items-end">
               {i.tags.map((tag) => (
-                <div key={tag.label} className="flex flex-col items-end">
+                <div
+                  key={`${i.n}-${tag.label}`}
+                  className="flex flex-col items-end"
+                >
                   <Pill
-                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs ${tag.className}`}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs transition-all ${tag.className}`}
                   >
                     {renderTagIcon(tag.icon)}
                     <span>{tag.label}</span>
                   </Pill>
+
                   {tag.subtext && (
-                    <span className="mt-1 text-[11px] text-slate-400">
+                    <span className="mt-1 text-[10px] text-slate-400 font-medium">
                       {tag.subtext}
                     </span>
                   )}
