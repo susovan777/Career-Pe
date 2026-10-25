@@ -41,13 +41,13 @@ export function Support() {
           <h2 className="text-[32px] font-bold leading-10 text-slate-900">
             Still have questions?
           </h2>
-          <p className="mx-auto mt-5 max-w-[560px] text-xl leading-[30px] text-slate-600">
+          <p className="mx-auto mt-5 max-w-140 text-xl leading-7.5 text-slate-600">
             Our support team is here to help you succeed. Get in touch anytime.
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-5">
             <a
               href="#"
-              className="flex h-[52px] items-center gap-3 rounded-full bg-brand pl-7 pr-1 text-base font-semibold text-white transition hover:bg-blue-600"
+              className="flex h-13 items-center gap-3 rounded-full bg-brand pl-7 pr-1 text-base font-semibold text-white transition hover:bg-blue-600"
             >
               Contact Support
               <span className="grid size-11 place-items-center rounded-full bg-white text-brand">
@@ -56,7 +56,7 @@ export function Support() {
             </a>
             <a
               href="#"
-              className="flex h-[52px] items-center gap-3 rounded-full border border-brand bg-white pl-7 pr-1 text-base font-semibold text-brand transition hover:bg-sky-50"
+              className="flex h-13 items-center gap-3 rounded-full border border-brand bg-white pl-7 pr-1 text-base font-semibold text-brand transition hover:bg-sky-50"
             >
               Schedule a Call
               <span className="grid size-11 place-items-center rounded-full bg-brand text-white">
@@ -83,13 +83,13 @@ const ctaButtons: [string, string][] = [
 
 function ReadyCta() {
   return (
-    <div className="mx-auto max-w-[1373px] px-6 pt-10">
+    <div className="mx-auto max-w-343.25 px-6 pt-10">
       <div className="flex flex-col justify-between gap-6 rounded-4xl border border-slate-300 bg-white px-8 py-11 lg:flex-row lg:items-center lg:px-13">
         <div>
           <h2 className="text-3xl font-bold leading-9 text-slate-900">
             Ready for what’s next?
           </h2>
-          <p className="mt-2 max-w-[400px] text-base leading-6 text-slate-600">
+          <p className="mt-2 max-w-100 text-base leading-6 text-slate-600">
             Discover colleges, find opportunities, list your institution, or
             start hiring with CampusPe.
           </p>
@@ -174,7 +174,7 @@ export function Footer() {
 
       <ReadyCta />
 
-      <div className="mx-auto max-w-[1373px] px-6">
+      <div className="mx-auto max-w-343.25 px-6">
         <div className="grid gap-10 pt-11 md:grid-cols-3 lg:grid-cols-[247fr_112fr_106fr_118fr_117fr_137fr] lg:gap-0">
           <div className="md:col-span-3 lg:col-span-1">
             <Image
@@ -184,10 +184,10 @@ export function Footer() {
               height={48}
               className="h-12 w-auto"
             />
-            <p className="mt-[34px] max-w-[360px] text-xl leading-[30px] text-slate-800">
+            <p className="mt-8.5 max-w-90 text-xl leading-7.5 text-slate-800">
               From choosing a college to finding your next opportunity.
             </p>
-            <p className="mt-[22px] max-w-[360px] text-xl leading-[30px] text-slate-600">
+            <p className="mt-5.5 max-w-90 text-xl leading-7.5 text-slate-600">
               CampusPe connects students, colleges and employers in one place.
             </p>
           </div>
@@ -199,7 +199,7 @@ export function Footer() {
               </h3>
               <ul
                 className={`flex flex-col text-sm leading-5 text-slate-600 ${
-                  loose ? "mt-4 gap-[17px]" : "mt-3 gap-3"
+                  loose ? "mt-4 gap-4.25" : "mt-3 gap-3"
                 }`}
               >
                 {links.map((l) => (
@@ -214,11 +214,11 @@ export function Footer() {
                 <>
                   <a
                     href="#"
-                    className="mt-[15px] block text-sm leading-5 text-brand"
+                    className="mt-3.75 block text-sm leading-5 text-brand"
                   >
                     View all policies →
                   </a>
-                  <p className="mt-8 rounded-xl border border-sky-200 bg-sky-50/60 p-4 text-base leading-6 text-slate-800 lg:-ml-3 lg:w-[228px]">
+                  <p className="mt-8 rounded-xl border border-sky-200 bg-sky-50/60 p-4 text-base leading-6 text-slate-800 lg:-ml-3 lg:w-57">
                     Separate user, institution and employer terms can live
                     inside the full Policies page.
                   </p>
@@ -258,7 +258,7 @@ export function Footer() {
           <p className="text-[22px] leading-7.5 text-blue-950">
             2026 CampusPe Technologies Pvt. Ltd. Privacy Terms Grievance
           </p>
-          <div className="flex items-center gap-[22px] text-blue-900">
+          <div className="flex items-center gap-5.5 text-blue-900">
             {socials.map(({ l, i }) => (
               <a key={l} href="#" aria-label={l}>
                 {i}

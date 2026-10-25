@@ -19,7 +19,6 @@ export default function Page() {
         <Showcase />
         <Download />
         <Support />
-        {/* <ReadyCta /> */}
       </main>
       <Footer />
     </>

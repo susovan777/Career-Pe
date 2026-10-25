@@ -57,7 +57,7 @@ const steps = [
     tag: "AI Ranked",
     tagClass: "bg-slate-100 text-slate-500",
     badgeClass: "bg-slate-50 border-slate-200 text-slate-400",
-    cardClass: "border-slate-100 bg-white/70",
+    cardClass: "border-slate-200 bg-white/70",
   },
   {
     n: "03",
@@ -66,7 +66,7 @@ const steps = [
     tag: "Instant Alerts",
     tagClass: "bg-emerald-50 text-emerald-600",
     badgeClass: "bg-slate-50 border-slate-200 text-slate-400",
-    cardClass: "border-slate-100 bg-white/70",
+    cardClass: "border-slate-200 bg-white/70",
   },
 ];
 
@@ -126,7 +126,7 @@ export function Discovery() {
           {steps.map((s) => (
             <div
               key={s.n}
-              className={`flex items-start gap-4 rounded-2xl border p-4 transition-all duration-200 ${s.cardClass}`}
+              className={`flex items-start gap-4 rounded-2xl border  p-4 transition-all duration-200 ${s.cardClass}`}
             >
               <span
                 className={`grid size-8 shrink-0 place-items-center rounded-lg border text-xs font-semibold ${s.badgeClass}`}
@@ -154,7 +154,7 @@ export function Discovery() {
         </Btn>
       </div>
 
-      <div className="relative rounded-3xl bg-white p-6 shadow-xl">
+      <div className="relative rounded-3xl border border-slate-200 bg-white p-6 shadow-xl">
         <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
           <span className="grid size-11 place-items-center rounded-xl bg-brand text-white">
             <Zap size={20} />
