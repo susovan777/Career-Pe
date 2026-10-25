@@ -344,7 +344,7 @@ export default function Hero() {
               <I size={22} />
             </span>
             <div className="text-left">
-              <p className="font-heading text-3xl font-bold">{v}</p>
+              <p className="font-serif text-3xl font-bold">{v}</p>
               <p className="text-sm">{l}</p>
             </div>
           </div>

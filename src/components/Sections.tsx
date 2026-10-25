@@ -55,20 +55,26 @@ const steps = [
     d: "Tell us what you're looking for, from colleges and courses to jobs, internships and gigs.",
     tag: "Smart Profile",
     tagClass: "bg-indigo-50 text-indigo-600",
+    badgeClass: "bg-indigo-50 border-indigo-200 text-indigo-600",
+    cardClass: "border-indigo-200/90 bg-white shadow-xs",
   },
   {
     n: "02",
     t: "Discover relevant opportunities",
     d: "Explore colleges and career opportunities matched to your profile, interests and goals.",
     tag: "AI Ranked",
-    tagClass: "bg-slate-100 text-slate-600",
+    tagClass: "bg-slate-100 text-slate-500",
+    badgeClass: "bg-slate-50 border-slate-200 text-slate-400",
+    cardClass: "border-slate-100 bg-white/70",
   },
   {
     n: "03",
     t: "Get notified when something fits",
     d: "Get notified when a relevant college or new opportunity is found, so you can act early.",
     tag: "Instant Alerts",
-    tagClass: "bg-emerald-50 text-emerald-700",
+    tagClass: "bg-emerald-50 text-emerald-600",
+    badgeClass: "bg-slate-50 border-slate-200 text-slate-400",
+    cardClass: "border-slate-100 bg-white/70",
   },
 ];
 
@@ -101,7 +107,15 @@ const feed = [
 
 export function Discovery() {
   return (
-    <Section className="grid items-center gap-12 lg:grid-cols-2">
+    <Section className="relative isolate grid items-center gap-12 lg:grid-cols-2">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 -z-10 h-full w-[125%] -translate-x-1/2"
+        style={{
+          background:
+            "radial-gradient(35% 45% at 0% 45%, rgba(186,230,253,.45), transparent 70%), radial-gradient(38% 42% at 100% 0%, rgba(221,214,254,.60), transparent 70%)",
+        }}
+      />
       <div>
         <Eyebrow>01 • Opportunity Discovery</Eyebrow>
         <h2 className="mt-6 text-5xl font-bold text-slate-700">
@@ -120,16 +134,22 @@ export function Discovery() {
           {steps.map((s) => (
             <div
               key={s.n}
-              className="flex gap-4 rounded-xl border border-slate-300 bg-white p-4"
+              className={`flex items-start gap-4 rounded-2xl border p-4 transition-all duration-200 ${s.cardClass}`}
             >
-              <span className="grid size-8 shrink-0 place-items-center rounded-md border text-xs font-semibold text-indigo-600">
+              <span
+                className={`grid size-8 shrink-0 place-items-center rounded-lg border text-xs font-semibold ${s.badgeClass}`}
+              >
                 {s.n}
               </span>
-              <div className="flex-1">
-                <p className="font-semibold">{s.t}</p>
-                <p className="text-sm text-slate-500">{s.d}</p>
+              <div className="flex-1 pt-0.5">
+                <p className="font-semibold text-slate-800">{s.t}</p>
+                <p className="mt-1 text-sm text-slate-500 leading-relaxed">
+                  {s.d}
+                </p>
               </div>
-              <Pill className={`h-fit border-transparent ${s.tagClass}`}>
+              <Pill
+                className={`h-fit shrink-0 border-transparent text-xs font-medium ${s.tagClass}`}
+              >
                 {s.tag}
               </Pill>
             </div>
@@ -142,8 +162,8 @@ export function Discovery() {
         </Btn>
       </div>
 
-      <div className="rounded-3xl bg-white p-6 shadow-xl">
-        <div className="flex items-center gap-3 border-b pb-4">
+      <div className="relative rounded-3xl bg-white p-6 shadow-xl">
+        <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
           <span className="grid size-11 place-items-center rounded-xl bg-brand text-white">
             <Zap size={20} />
           </span>
@@ -217,6 +237,36 @@ export function Discovery() {
             Curated for you • Updated daily
           </span>
         </div>
+
+        <div className="absolute left-16 top-full mt-4 hidden items-start gap-3 md:flex">
+          <svg
+            width="38"
+            height="28"
+            viewBox="0 0 38 28"
+            fill="none"
+            aria-hidden
+            className="mt-2 text-indigo-500"
+          >
+            <path
+              d="M36 24 C24 24 10 20 5 6"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+            />
+            <path
+              d="M2 14 L5 5 L13 9"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <p className="font-hand text-2xl font-semibold leading-snug text-violet-800">
+            A mix of colleges, jobs,
+            <br />
+            internships and gigs — all in one place.
+          </p>
+        </div>
       </div>
     </Section>
   );
@@ -227,26 +277,26 @@ const checks = [
     t: "Resume analyzed",
     s: "Ready in 4s",
     dot: true,
-    text: "text-green-600",
-    box: "border-green-200 bg-green-50 text-green-600",
+    text: "text-emerald-600",
+    iconBox: "bg-emerald-50 text-emerald-600 border-emerald-100",
   },
   {
     t: "Skills matched",
     s: "Deep taxonomy",
-    text: "text-indigo-600",
-    box: "border-indigo-200 bg-indigo-50 text-indigo-600",
+    text: "text-blue-600",
+    iconBox: "bg-blue-50 text-blue-600 border-blue-100",
   },
   {
     t: "Experience matched",
     s: "Contextual seniority",
-    text: "text-violet-600",
-    box: "border-violet-200 bg-violet-50 text-violet-600",
+    text: "text-purple-600",
+    iconBox: "bg-purple-50 text-purple-600 border-purple-100",
   },
   {
     t: "1,000+ sources searched",
     s: "Real-time aggregators",
-    text: "text-brand",
-    box: "border-sky-200 bg-sky-50 text-brand",
+    text: "text-sky-600",
+    iconBox: "bg-sky-50 text-sky-600 border-sky-100",
   },
 ];
 
@@ -264,84 +314,117 @@ const Chip = ({
   className: string;
 }) => (
   <div
-    className={`absolute hidden items-center gap-3 rounded-2xl bg-white px-4 py-3 z-5 text-left shadow-[0_10px_30px_rgba(15,23,42,.1)] md:flex ${className}`}
+    className={`absolute hidden items-center gap-3 rounded-2xl border border-slate-100 bg-white/95 px-4 py-3 z-10 text-left shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-xs md:flex ${className}`}
   >
-    <span className={`grid size-10 place-items-center rounded-xl ${tone}`}>
+    <span
+      className={`grid size-9 place-items-center rounded-xl border ${tone}`}
+    >
       {icon}
     </span>
     <div>
-      <p className="text-sm font-bold">{title}</p>
-      <p className="text-xs text-slate-500">{sub}</p>
+      <p className="text-sm font-bold text-slate-800">{title}</p>
+      <p className="text-xs text-slate-400">{sub}</p>
     </div>
   </div>
 );
 
 const corners = [
-  "top-3 left-3 border-t-2 border-l-2",
-  "top-3 right-3 border-t-2 border-r-2",
-  "bottom-3 left-3 border-b-2 border-l-2",
-  "bottom-3 right-3 border-b-2 border-r-2",
+  "top-2.5 left-2.5 border-t-2 border-l-2",
+  "top-2.5 right-2.5 border-t-2 border-r-2",
+  "bottom-2.5 left-2.5 border-b-2 border-l-2",
+  "bottom-2.5 right-2.5 border-b-2 border-r-2",
 ];
 
 export function ResumeUpload() {
   return (
-    <Section className="text-center">
-      <span className="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm shadow-sm">
-        <i className="size-2.5 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
-        <b className="font-semibold uppercase text-brand">Try it live</b>
-        <span className="h-4 w-px bg-slate-300" />
+    <Section className="relative isolate text-center">
+      {/* ── Background Glow Effect (Sky Blue Left, Lavender Purple Right) ── */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[115%] w-[130%] -translate-x-1/2 -translate-y-1/2"
+        style={{
+          background:
+            "radial-gradient(40% 45% at 15% 50%, rgba(186,230,253,0.40), transparent 70%), radial-gradient(42% 50% at 85% 55%, rgba(221,214,254,0.45), transparent 70%)",
+        }}
+      />
+
+      {/* Pill Badge */}
+      <span className="inline-flex items-center gap-3 rounded-full border border-slate-200/80 bg-white/90 px-4 py-1.5 text-xs font-medium shadow-xs">
+        <i className="size-2 rounded-full bg-indigo-500 ring-4 ring-indigo-100" />
+        <b className="font-semibold uppercase tracking-wider text-brand">
+          Try it live
+        </b>
+        <span className="h-3.5 w-px bg-slate-200" />
         <span className="text-slate-500">v2.4 AI Engine</span>
       </span>
 
-      <h2 className="mt-6 text-5xl font-extrabold leading-tight md:text-6xl">
+      {/* Heading */}
+      <h2 className="mt-6 text-5xl font-bold leading-tight text-slate-800 md:text-6xl">
         Upload your resume.
         <br />
         <span className="text-brand">Find jobs that fit.</span>
       </h2>
-      <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-500 md:text-xl">
+
+      {/* Subheading */}
+      <p className="mx-auto mt-5 max-w-2xl text-base text-slate-500 md:text-lg">
         Upload once. CampusPe reads your skills, experience, and preferences —
-        <br className="hidden md:block" /> then finds relevant jobs across
+        <br className="hidden sm:inline" /> then finds relevant jobs across
         1,000+ sources.
       </p>
 
-      <div className="relative mx-auto mt-14 max-w-3xl">
+      {/* Main Upload Box Area */}
+      <div className="relative mx-auto mt-12 max-w-3xl">
+        {/* Left Floating Chip */}
         <Chip
-          className="-left-10 top-10"
-          tone="bg-lime-100 text-lime-600"
-          icon={<Zap size={16} />}
+          className="-left-8 top-15"
+          tone="bg-lime-50 text-lime-600 border-lime-100"
+          icon={<Zap size={15} />}
           title="98% Match Rate"
           sub="AI semantic rank"
         />
+
+        {/* Right Floating Chip */}
         <Chip
-          className="-right-12 bottom-14"
-          tone="bg-orange-100 text-orange-500"
+          className="-right-8 bottom-15"
+          tone="bg-amber-50 text-amber-600 border-amber-100"
           icon={<Lock size={14} />}
           title="ATS Compliant"
           sub="Standardized parser"
         />
 
-        <label className="block cursor-pointer rounded-4xl bg-white/90 p-8 shadow-[0_20px_60px_rgba(99,102,241,.12)]">
-          <div className="relative rounded-2xl border-2 border-dashed border-indigo-200 px-6 py-12">
+        {/* Main Upload Box */}
+        <label className="block cursor-pointer rounded-4xl border border-slate-100 bg-white p-6 shadow-[0_20px_60px_-15px_rgba(99,102,241,0.20),0_10px_25px_-5px_rgba(15,23,42,0.08)] transition-shadow duration-300 hover:shadow-[0_25px_70px_-12px_rgba(99,102,241,0.28),0_12px_30px_-5px_rgba(15,23,42,0.12)] md:p-8">
+          <div className="relative rounded-2xl border-2 border-dashed border-indigo-200/80 px-6 py-10 sm:py-12">
             {corners.map((c) => (
-              <i key={c} className={`absolute size-3 border-indigo-300 ${c}`} />
+              <i
+                key={c}
+                className={`absolute size-3 border-indigo-300/80 ${c}`}
+              />
             ))}
-            <p className="text-4xl font-bold">Upload your resume</p>
-            <p className="mx-auto mt-3 max-w-md text-slate-500">
+
+            <p className="text-3xl font-bold text-slate-800 sm:text-4xl">
+              Upload your resume
+            </p>
+            <p className="mx-auto mt-2.5 max-w-md text-xs text-slate-500 sm:text-sm">
               PDF, DOC, or DOCX · Up to 10MB · We'll use it to understand your
               skills and experience.
             </p>
-            <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-9 py-4 font-semibold text-white shadow-lg shadow-brand/30">
-              Upload resume <ArrowUp size={16} />
+
+            <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition-transform hover:scale-102">
+              Upload resume <ArrowUp size={15} />
             </span>
+
             <input type="file" accept=".pdf,.doc,.docx" className="sr-only" />
-            <p className="mt-5 text-sm text-slate-500">
+
+            <p className="mt-4 text-xs text-slate-400">
               or drag and drop your file here
             </p>
+
             <div className="mt-3 flex justify-center gap-2">
               {["PDF", "DOC", "DOCX"].map((f) => (
                 <span
                   key={f}
-                  className="rounded-md border border-brand/50 px-3 py-1 text-xs font-medium text-brand"
+                  className="rounded-md border border-brand/40 px-2.5 py-0.5 text-[11px] font-medium text-brand"
                 >
                   {f}
                 </span>
@@ -351,31 +434,30 @@ export function ResumeUpload() {
         </label>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-6xl flex-col gap-4 lg:flex-row lg:items-stretch lg:gap-0">
-        {checks.map((c, i) => (
-          <Fragment key={c.t}>
-            {i > 0 && (
-              <span className="hidden h-px w-6 shrink-0 self-center bg-slate-200 lg:block" />
-            )}
-            <div className="flex flex-1 items-center gap-4 rounded-2xl border border-slate-100 bg-white p-3 text-left shadow-sm">
-              <span
-                className={`grid size-11 shrink-0 place-items-center rounded-xl border ${c.box}`}
+      {/* ── 4 Feature Cards Across Bottom ── */}
+      <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {checks.map((c) => (
+          <div
+            key={c.t}
+            className="flex items-center gap-3.5 rounded-2xl border border-slate-100 bg-white p-4 text-left shadow-xs transition-shadow hover:shadow-sm"
+          >
+            <span
+              className={`grid size-10 shrink-0 place-items-center rounded-xl border ${c.iconBox}`}
+            >
+              <Check size={17} strokeWidth={2.4} />
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-slate-800">{c.t}</p>
+              <p
+                className={`flex items-center gap-1.5 text-xs font-medium ${c.text}`}
               >
-                <Check size={18} />
-              </span>
-              <div>
-                <p className="font-semibold leading-snug">{c.t}</p>
-                <p
-                  className={`flex items-center gap-1.5 text-xs font-medium ${c.text}`}
-                >
-                  {c.dot && (
-                    <i className="size-1.5 rounded-full bg-green-500" />
-                  )}
-                  {c.s}
-                </p>
-              </div>
+                {c.dot && (
+                  <i className="size-1.5 rounded-full bg-emerald-500" />
+                )}
+                {c.s}
+              </p>
             </div>
-          </Fragment>
+          </div>
         ))}
       </div>
     </Section>

@@ -4,6 +4,7 @@
   --color-brand: #0a84ff;
   --color-ink: #0f172a;
   --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
   --font-heading: var(--font-roboto), system-ui, sans-serif;
 
   --animate-marquee: marquee 30s linear infinite;
