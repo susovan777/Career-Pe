@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["500", "700", "900"], 
+  weight: ["500", "700", "900"],
   variable: "--font-roboto",
 });
 

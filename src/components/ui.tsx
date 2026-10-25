@@ -15,7 +15,7 @@ export const Btn = ({
 );
 export const Pill = ({ children, className = "" }: P) => (
   <span
-    className={`rounded-full border px-3 py-1 text-xs font-medium ${className}`}
+    className={`rounded-full border px-3 py-1 text-xs font-medium bg-blue-50 ${className}`}
   >
     {children}
   </span>

@@ -1,11 +1,11 @@
-import Image from "next/image";
 import { Btn } from "./ui";
+import Image from "next/image";
 const links = ["Colleges", "Employers", "Jobs", "Blogs"];
 
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-30 bg-white/80 backdrop-blur">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <nav className="mx-auto flex max-w-11/12 items-center justify-between px-6 py-4">
         <a href="#" className="text-2xl font-extrabold text-brand">
           {/* CampusPe */}
           <Image
