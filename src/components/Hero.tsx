@@ -307,7 +307,7 @@ export default function Hero() {
                 </span>
                 <Pill className="border-brand text-brand">{tag}</Pill>
               </div>
-              <h3 className="mt-6 text-2xl font-bold">{title}</h3>
+              <h3 className="font-serif mt-6 text-2xl font-bold">{title}</h3>
               <p className="mt-2 text-sm text-slate-600">{desc}</p>
               <ul className="mt-5 flex-1 space-y-3 text-sm">
                 {pts.map((p) => (
@@ -344,7 +344,7 @@ export default function Hero() {
               <I size={22} />
             </span>
             <div className="text-left">
-              <p className="font-serif text-3xl font-bold">{v}</p>
+              <p className="text-3xl font-bold">{v}</p>
               <p className="text-sm">{l}</p>
             </div>
           </div>

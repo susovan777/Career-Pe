@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import { Partners, Discovery, ResumeUpload } from "@/components/Sections";
 import Audience from "@/components/Audience";
 import { Showcase, Download } from "@/components/App";
-import { Support, ReadyCta, Footer } from "@/components/Footer";
+import { Support,  Footer } from "@/components/Footer";
 import { colleges, employers } from "@/lib/data";
 export default function Page() {
   return (
@@ -19,7 +19,7 @@ export default function Page() {
         <Showcase />
         <Download />
         <Support />
-        <ReadyCta />
+        {/* <ReadyCta /> */}
       </main>
       <Footer />
     </>

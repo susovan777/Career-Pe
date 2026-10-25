@@ -15,17 +15,19 @@ const screens = [
   { src: "/screens/college.png", alt: "College dashboard" },
 ];
 
-const scale = [1.15, 0.95, 0.85];
-const fade = [1, 0.85, 0.6];
+// phone centre offset from the middle, phone width, and opacity — all by distance from the active phone
+const OFFSET = [0, 22.8, 41.6, 58]; // % of row width
+const WIDTH = [23.6, 18.75, 15.8, 14]; // % of row width
+const FADE = [1, 0.85, 0.6, 0];
 
 export function Showcase() {
   const [active, setActive] = useState(2);
   return (
-    <Section className="text-center">
-      <h2 className="text-4xl font-bold text-brand md:text-5xl">
+    <Section className="text-center md:pb-0!">
+      <h2 className="text-4xl font-bold leading-none text-brand md:-translate-x-12 md:text-[40px]">
         Checkout Our App Interface Look
       </h2>
-      <p className="mx-auto mt-4 max-w-3xl text-slate-600">
+      <p className="mx-auto mt-6 max-w-215 text-base leading-[1.3] text-slate-600">
         Experience the power of a unified campus ecosystem right in your pocket.{" "}
         <b className="text-ink">CampusPe</b> offers a tailored interface for
         every user: students can explore trending courses, colleges can showcase
@@ -33,23 +35,24 @@ export function Showcase() {
         pool of qualified candidates.
       </p>
 
-      <div className="relative mt-10 h-115 overflow-hidden md:h-150">
+      <div className="relative mt-10 aspect-1232/608 overflow-x-clip">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,132,255,.10),transparent_65%)]" />
         {screens.map((s, n) => {
           const off = n - active;
-          const d = Math.abs(off);
+          const d = Math.min(Math.abs(off), 3);
           return (
             <button
               key={s.src}
               onClick={() => setActive(n)}
               aria-label={`Show ${s.alt}`}
               aria-current={off === 0}
-              className="absolute left-1/2 top-1/2 w-40 transition-all duration-500 ease-out sm:w-48 md:w-60 lg:w-50"
+              className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
               style={{
-                transform: `translate(calc(-50% + ${off} * min(20vw, 210px)), -50%) scale(${scale[Math.min(d, 2)]})`,
-                opacity: d > 2 ? 0 : fade[d],
+                left: `${50 + Math.sign(off) * OFFSET[d]}%`,
+                width: `${WIDTH[d]}%`,
+                opacity: FADE[d],
                 zIndex: 10 - d,
-                pointerEvents: d > 2 ? "none" : "auto",
+                pointerEvents: d === 3 ? "none" : "auto",
               }}
             >
               <Image
@@ -65,13 +68,13 @@ export function Showcase() {
         })}
       </div>
 
-      <div className="mt-6 flex items-center justify-center gap-4">
+      <div className="mt-8 flex items-center justify-center gap-5.5">
         {screens.map((s, n) => (
           <button
             key={s.src}
             onClick={() => setActive(n)}
             aria-label={`Go to ${s.alt}`}
-            className={`rounded-full bg-brand transition-all ${n === active ? "size-5" : "size-3.5"}`}
+            className={`rounded-full bg-brand transition-all ${n === active ? "size-5.5" : "size-3.75"}`}
           />
         ))}
       </div>
